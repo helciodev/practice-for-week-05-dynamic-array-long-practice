@@ -33,9 +33,7 @@ class DynamicArray {
       newArr[i - 1] = this.data[i];
     }
     this.data = newArr;
-    if (this.length > 0) {
-      this.length--;
-    }
+    if (this.length > 0) this.length--;
     return firstElement;
   }
 
