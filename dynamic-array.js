@@ -13,24 +13,15 @@ class DynamicArray {
     if (this.length === this.capacity) {
       this.resize();
     }
-    for (let i = 0; i < this.capacity; i++) {
-      if (this.data[i] === undefined) {
-        this.data[i] = val;
-        this.length++;
-        return this.length;
-      }
-    }
+    this.data[this.length] = val;
+    this.length++;
   }
 
   pop() {
-    const newArr = new Array(this.capacity);
     const lasEl = this.data[this.length - 1];
 
-    for (let i = 0; i < this.length - 1; i++) {
-      newArr[i] = this.data[i];
-    }
+    this.data[this.length - 1] = undefined;
 
-    this.data = newArr;
     if (this.length > 0) this.length--;
     return lasEl;
   }
